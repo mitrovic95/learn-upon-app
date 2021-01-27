@@ -25,29 +25,6 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe(data => { this.userList = (Object.values(data).map((data) => data))[0];
     })
-    // this.userStoreService.dispatchGetUsersAction();
-    // this.users$ = this.userStoreService.getUsers().pipe(map(val => val));
-    // console.log("🚀 ~ file: user-page.component.ts ~ line 27 ~ UserPageComponent ~ ngOnInit ~ users", this.users$)
-    
-    // setTimeout(() => {
-    //   var dd = this.userStoreService.getUsers().pipe(map(data => this.userList = data));
-    //   debugger
-    // }, 2000);
-    // var ddr = this.users$.toPromise();
-    // console.log("🚀 ~ file: user-page.component.ts ~ line 31 ~ UserPageComponent ~ ngOnInit ~ ddr", ddr)
-    // ddr.then((data) => this.userList = data);
-    // this.users$ = this.store.select(state => state.users);
-    // debugger
-    // this.store.pipe(state => state).subscribe(data => {
-    // console.log("🚀 ~ file: user-page.component.ts ~ line 31 ~ UserPageComponent ~ ngOnInit ~ this.userList", this.userList)
-    //   console.log(data)
-    // });
-    // console.log("🚀 ~ file: user-page.component.ts ~ line 29 ~ UserPageComponent ~ ngOnInit ~ this.users$", this.users$)
-    // console.log("🚀 ~ file: user-page.component.ts ~ line 24 ~ UserPageComponent ~ ngOnInit ~ ddd", ddd)
-    //  console.log(this.users$)
-    //  this.users$.subscribe(data => {console.log(data)});
-    //  console.log("🚀 ~ file: user-page.component.ts ~ line 50 ~ UserPageComponent ~ ngOnInit ~ this.userList", this.userList)
-
     this.initForm();
   }
 

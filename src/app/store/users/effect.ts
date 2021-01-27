@@ -32,32 +32,6 @@ export class UserEffects {
       tap(() => console.log('Action 1'))
   );
 
-  // @Effect()
-  // create$ = this.actions$
-  //   .pipe(
-  //     ofType<UserAction>(UserActionType.ADD_USER),
-  //     concatMap(({user}) => this.userService.createUser(user)
-  //     .pipe(
-  //       map(user => {
-  //         return (new CreateUserSuccessAction({user: user}));
-  //       }),
-  //       catchError((errorMessage) => of(new Error(errorMessage)))
-  //     )),
-  // );
-
-  // @Effect() 
-  // addShoppingItem$ = this.actions$
-  //   .pipe(
-  //     ofType<UserAction>(UserActionType.ADD_USER),
-  //     mergeMap(
-  //       (data) => this.userService.createUser(data.payload)
-  //         .pipe(
-  //           map(() => new CreateUserAction(data.payload)),
-  //           catchError(errorMessage => of(new Error(errorMessage)))
-  //         )
-  //     )
-  // )
-
   constructor(private actions$: Actions, private userService: UserService) { }
 
 }
