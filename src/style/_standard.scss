@@ -1,0 +1,243 @@
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+// STANDARD
+
+// (colors, fonts, imgs, background, scroll)
+
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+// Colors
+$c-blue: #367AB5;
+$c-blue-light: #0297ed;
+$c-black: #2b2b2b;
+$c-black-light: #707070;
+$c-black-bg: #333333;
+$c-line-grey: #cbcbcb;
+$c-grey: #6e6e6e;
+$c-red: #f00051;
+$c-white: white;
+
+// Fonts
+@font-face {
+    font-family: "Segoe-UI";
+    src: url("../fonts/Segoe-UI.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Segoe-UI-Italic";
+    src: url("../fonts/Segoe-UI-Italic.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Segoe-UI-Semi-Bold";
+    src: url("../fonts/Segoe-UI-Semi-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Segoe-UI-Semi-Bold-Italic";
+    src: url("../fonts/Segoe-UI-Semi-Bold-Italic.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Segoe-UI-Bold";
+    src: url("../fonts/Segoe-UI-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Segoe-UI-Bold-Italic";
+    src: url("../fonts/Segoe-UI-Bold-Italic.woff") format("woff");
+}
+
+@mixin font-basic($color, $font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null) {
+    font-family: "Segoe-UI";
+    color: $color;
+    @include font-size($font-size);
+}
+
+@mixin font-basic-italic($color, $font-size) {
+    font-family: "Segoe-UI-Italic";
+    color: $color;
+    @include font-size($font-size);
+}
+
+@mixin font-basic-semi-bold($color, $font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null) {
+    font-family: "Segoe-UI-Semi-Bold";
+    color: $color;
+    @include font-size($font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null);
+}
+
+@mixin font-basic-semi-bold-italic($color, $font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null) {
+    font-family: "Segoe-UI-Semi-Bold-Italic";
+    color: $color;
+    @include font-size($font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null);
+}
+
+@mixin font-basic-bold($color, $font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null) {
+    font-family: "Segoe-UI-Bold";
+    color: $color;
+    @include font-size($font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null);
+}
+
+@mixin font-basic-bold-italic($color, $font-size) {
+    font-family: "Segoe-UI-Bold-Italic";
+    color: $color;
+    @include font-size($font-size);
+}
+
+@mixin font-navbar() {
+    font-family: "Segoe-UI";
+}
+
+@mixin font-navbar-bold() {
+    font-family: "Segoe-UI";
+    font-weight: 600;
+}
+
+// Font-size
+$fs-basic: 0.9rem;
+$fs-section-title: 2.25rem;
+$fs-section-subtitle: 1.25rem;
+$fs-footer: 0.9375rem;
+$fs-collections-title: 1.25rem;
+
+// Radius
+$radius-btn: 15px;
+
+$radius-m: 15px;
+$radius-l: 20px;
+$radius-s: 30px;
+
+// Shadows
+$shadow-m: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+$shadow-l: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+$shadow-s: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+
+// Screen
+$screen-container: 1450px;
+
+$break-small: 688px;
+$break-medium: 992px;
+$break-large: 1450px;
+
+// @mixin container() {
+//     max-width: $screen-container;
+//     margin: 0 auto;
+
+//     @include resp(L) {
+//         padding: 0px 20px;
+//     }
+// }
+
+@mixin container-center() {
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include resp(L) {
+        padding: 0px 20px;
+    }
+}
+
+@mixin container-section() {
+    max-width: $screen-container;
+    margin: 50px auto 0 auto;
+
+    @include resp(L) {
+        padding: 0px 20px;
+    }
+}
+
+// Images
+
+// Root
+$img-root: "../assets/imgs";
+
+// Icons
+$icon-nav_msg-0: "icon/nav_msg-0.svg";
+$icon-nav_msg-1: "icon/nav_msg-1.svg";
+
+$icon-nav_notification-0: "icon/nav_notification-0.svg";
+$icon-nav_notification-1: "icon/nav_notification-1.svg";
+
+$icon-nav_search-0: "icon/nav_search-0.svg";
+$icon-nav_search-1: "icon/nav_search-1.svg";
+
+$icon-nav_workflow-0: "icon/nav_workflow-0.svg";
+$icon-nav_workflow-1: "icon/nav_workflow-1.svg";
+
+$icon-pagination_next-0: "icon/pagination_next-0.svg";
+$icon-pagination_next-1: "icon/pagination_next-1.svg";
+
+$icon-pagination_prev-0: "icon/pagination_prev-0.svg";
+$icon-pagination_prev-1: "icon/pagination_prev-1.svg";
+
+$icon-share_add-0: "icon/share_add-0.svg";
+$icon-share_add-1: "icon/share_add-1.svg";
+
+$icon-share_details-0: "icon/share_details-0.svg";
+$icon-share_details-1: "icon/share_details-1.svg";
+$icon-share_search-0: "icon/share_search-0.svg";
+
+$icon-sideBar_buy-0: "icon/sideBar_buy-0.svg";
+$icon-sideBar_buy-1: "icon/sideBar_buy-1.svg";
+
+$icon-sideBar_chat-0: "icon/sideBar_chat-0.svg";
+$icon-sideBar_chat-1: "icon/sideBar_chat-1.svg";
+
+$icon-sideBar_data-0: "icon/sideBar_data-0.svg";
+$icon-sideBar_data-1: "icon/sideBar_data-1.svg";
+
+$icon-sideBar_document-0: "icon/sideBar_document-0.svg";
+$icon-sideBar_document-1: "icon/sideBar_document-1.svg";
+
+$icon-sideBar_nav-0: "icon/sideBar_nav-0.svg";
+$icon-sideBar_nav-1: "icon/sideBar_nav-1.svg";
+
+$icon-sideBar_school-0: "icon/sideBar_school-0.svg";
+$icon-sideBar_school-1: "icon/sideBar_school-1.svg";
+
+$icon-sideBar_settings-0: "icon/sideBar_settings-0.svg";
+$icon-sideBar_settings-1: "icon/sideBar_settings-1.svg";
+
+$icon-sideBar_transaction-0: "icon/sideBar_transaction-0.svg";
+$icon-sideBar_transaction-1: "icon/sideBar_transaction-1.svg";
+
+$icon-sideBar_user-0: "icon/sideBar_user-0.svg";
+$icon-sideBar_user-1: "icon/sideBar_user-1.svg";
+
+$icon-sideBar_users-0: "icon/sideBar_users-0.svg";
+$icon-sideBar_users-1: "icon/sideBar_users-1.svg";
+
+$icon-sideBar_workflow-0: "icon/sideBar_workflow-0.svg";
+$icon-sideBar_workflow-1: "icon/sideBar_workflow-1.svg";
+
+$icon-table_data-0: "icon/table_data-0.svg";
+$icon-table_data-1: "icon/table_data-1.svg";
+
+$icon-table_users-0: "icon/table_users-0.svg";
+$icon-table_users-1: "icon/table_users-1.svg";
+$icon-table_users-2: "icon/table_users-2.svg";
+$icon-table_users-3: "icon/table_users-3.svg";
+
+// Logo
+$logo_LearnUpon: "logos/learnupon.svg";
+
+// Scroll
+@mixin scroll-vertical() {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f8f8f8;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #c0cace;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $c-blue;
+    }
+}

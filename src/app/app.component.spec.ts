@@ -1,6 +1,12 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { User } from './models/user.model';
+import { UserService } from './services/user.service';
+
+let userServiceStub: Partial<UserService>;
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,27 +15,13 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
       ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA,
+      ],
+      providers: [ { provide: UserService, useValue: userServiceStub } ]
     }).compileComponents();
   });
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'learn-upon-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('learn-upon-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('learn-upon-app app is running!');
-  });
 });
+

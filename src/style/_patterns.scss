@@ -1,0 +1,791 @@
+
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+// PATTERNS
+
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+// Responsive
+@mixin resp($media) {
+    @if $media==S {
+        @media only screen and (max-width: $break-small - 1) {
+            @content;
+        }
+    } @else if $media==M {
+        @media only screen and (max-width: $break-medium - 1) {
+            @content;
+        }
+    } @else if $media==L {
+        @media only screen and (max-width: $break-large - 1) {
+            @content;
+        }
+    }
+}
+
+@mixin respSpecif($dimension) {
+    @media only screen and (max-width: #{$dimension - 1}px) {
+        @content;
+    }
+}
+
+// Font size
+@mixin font-size($font-size, $font-size-L: null, $font-size-M: null, $font-size-S: null) {
+    font-size: $font-size * 1.2;
+
+    @include respSpecif(1900) {
+        font-size: $font-size * 1.15;
+    }
+
+    @include respSpecif(1700) {
+        font-size: $font-size;
+    }
+}
+
+@mixin font-size-L($font-size) {
+    @include resp(L) {
+        font-size: $font-size;
+    }
+}
+
+@mixin font-size-M($font-size) {
+    @include resp(M) {
+        font-size: $font-size;
+    }
+}
+
+@mixin font-size-S($font-size) {
+    @include resp(S) {
+        font-size: $font-size;
+    }
+}
+
+@mixin font-size-X($font-size, $resolution) {
+    @include respSpecif($resolution) {
+        font-size: $font-size;
+    }
+}
+
+// Margin
+@mixin margin($margin, $margin-L: null, $margin-M: null, $margin-S: null) {
+    margin: $margin;
+
+    @include resp(L) {
+        margin: $margin-L;
+    }
+
+    @include resp(M) {
+        margin: $margin-M;
+    }
+
+    @include resp(S) {
+        margin: $margin-S;
+    }
+}
+
+@mixin margin-L($margin) {
+    @include resp(L) {
+        margin: $margin;
+    }
+}
+
+@mixin margin-M($margin) {
+    @include resp(M) {
+        margin: $margin;
+    }
+}
+
+@mixin margin-S($margin) {
+    @include resp(S) {
+        margin: $margin;
+    }
+}
+
+@mixin margin-X($margin, $resolution) {
+    @include respSpecif($resolution) {
+        margin: $margin;
+    }
+}
+
+//Margin-Top
+@mixin margin-top($margin-top, $margin-top-L: null, $margin-top-M: null, $margin-top-S: null) {
+    margin-top: $margin-top;
+
+    @include resp(L) {
+        margin-top: $margin-top-L;
+    }
+
+    @include resp(M) {
+        margin-top: $margin-top-M;
+    }
+
+    @include resp(S) {
+        margin-top: $margin-top-S;
+    }
+}
+
+// Padding
+@mixin padding($padding, $padding-L: null, $padding-M: null, $padding-S: null) {
+    padding: $padding;
+
+    @include resp(L) {
+        padding: $padding-L;
+    }
+
+    @include resp(M) {
+        padding: $padding-M;
+    }
+
+    @include resp(S) {
+        padding: $padding-S;
+    }
+}
+
+@mixin padding-L($padding) {
+    @include resp(L) {
+        padding: $padding;
+    }
+}
+
+@mixin padding-M($padding) {
+    @include resp(M) {
+        padding: $padding;
+    }
+}
+
+@mixin padding-S($padding) {
+    @include resp(S) {
+        padding: $padding;
+    }
+}
+
+@mixin padding-X($padding, $resolution) {
+    @include respSpecif($resolution) {
+        padding: $padding;
+    }
+}
+
+// Height
+@mixin height($height, $height-L: null, $height-M: null, $height-S: null) {
+    height: $height;
+
+    @include resp(L) {
+        height: $height-L;
+    }
+
+    @include resp(M) {
+        height: $height-M;
+    }
+
+    @include resp(S) {
+        height: $height-S;
+    }
+}
+
+@mixin height-L($height) {
+    @include resp(L) {
+        height: $height;
+    }
+}
+
+@mixin height-M($height) {
+    @include resp(M) {
+        height: $height;
+    }
+}
+
+@mixin height-S($height) {
+    @include resp(S) {
+        height: $height;
+    }
+}
+
+@mixin height-X($height, $resolution) {
+    @include respSpecif($resolution) {
+        height: $height;
+    }
+}
+
+// Width
+@mixin width($width, $width-L: null, $width-M: null, $width-S: null) {
+    width: $width;
+
+    @include resp(L) {
+        width: $width-L;
+    }
+
+    @include resp(M) {
+        width: $width-M;
+    }
+
+    @include resp(S) {
+        width: $width-S;
+    }
+}
+
+@mixin width-L($width) {
+    @include resp(L) {
+        width: $width;
+    }
+}
+
+@mixin width-M($width) {
+    @include resp(M) {
+        width: $width;
+    }
+}
+
+@mixin width-S($width) {
+    @include resp(S) {
+        width: $width;
+    }
+}
+
+@mixin width-X($width, $resolution) {
+    @include respSpecif($resolution) {
+        width: $width;
+    }
+}
+
+// Grid-line
+@mixin grid-line($box-height, $box-w, $box-widths...) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    height: $box-height;
+    width: $box-w;
+
+    @for $i from 1 through length($box-widths) {
+        > div:nth-child(#{$i}) {
+            $box-width: nth($box-widths, $i);
+
+            @if ($box-width==auto or $box-width==1) {
+                display: flex;
+                flex: 1;
+            } @else if($box-width==content or $box-width==0) {
+                display: inline-block;
+                width: fit-content;
+            } @else if($box-width==none or $box-width==-1) {
+                display: none;
+            } @else if($box-width==auto-hide) {
+                display: flex;
+                flex: 1;
+
+                > div:nth-child(1n) {
+                    display: none;
+                }
+            } @else {
+                display: inline-block;
+
+                width: $box-width;
+            }
+        }
+    }
+}
+
+@mixin grid-line-L($box-height, $box-w, $box-widths...) {
+    @include resp(L) {
+        @include grid-line($box-height, $box-w, $box-widths...);
+    }
+}
+
+@mixin grid-line-M($box-height, $box-w, $box-widths...) {
+    @include resp(M) {
+        @include grid-line($box-height, $box-w, $box-widths...);
+    }
+}
+
+@mixin grid-line-S($box-height, $box-w, $box-widths...) {
+    @include resp(S) {
+        @include grid-line($box-height, $box-w, $box-widths...);
+    }
+}
+
+@mixin grid-line-X($resolution, $box-height, $box-w, $box-widths...) {
+    @include respSpecif($resolution) {
+        @include grid-line($box-height, $box-w, $box-widths...);
+    }
+}
+
+// Grid - column
+@mixin grid-colum($box-width, $box-h, $box-hights...) {
+    display: flex !important;
+    flex-direction: column !important;
+    height: $box-h;
+    width: $box-width;
+
+    @for $i from 1 through length($box-hights) {
+        > :nth-child(#{$i}) {
+            $box-hight: nth($box-hights, $i);
+
+            @if ($box-hight==auto or $box-hight==1) {
+                flex: 1;
+            } @else if($box-hight==content or $box-hight==0) {
+                flex: inherit;
+            } @else {
+                flex: 0 0 $box-hight;
+            }
+
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+@mixin grid-colum-L($box-width, $box-h, $box-hights...) {
+    @include resp(L) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+@mixin grid-colum-M($box-width, $box-h, $box-hights...) {
+    @include resp(M) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+@mixin grid-colum-S($box-width, $box-h, $box-hights...) {
+    @include resp(S) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+@mixin grid-colum-X($resolution, $box-width, $box-h, $box-hights...) {
+    @include respSpecif($resolution) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+// Grid - column
+@mixin grid-row($box-width, $box-h, $box-hights...) {
+    display: flex !important;
+    flex-direction: column !important;
+    height: $box-h;
+    width: $box-width;
+
+    @for $i from 1 through length($box-hights) {
+        > :nth-child(#{$i}) {
+            $box-hight: nth($box-hights, $i);
+
+            @if ($box-hight==auto or $box-hight==1) {
+                flex: 1;
+            } @else if($box-hight==content or $box-hight==0) {
+                flex: inherit;
+            } @else {
+                flex: 0 0 $box-hight;
+            }
+
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+@mixin grid-row-L($box-width, $box-h, $box-hights...) {
+    @include resp(L) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+@mixin grid-row-M($box-width, $box-h, $box-hights...) {
+    @include resp(M) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+@mixin grid-row-S($box-width, $box-h, $box-hights...) {
+    @include resp(S) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+@mixin grid-row-X($resolution, $box-width, $box-h, $box-hights...) {
+    @include respSpecif($resolution) {
+        @include grid-colum($box-width, $box-h, $box-hights...);
+    }
+}
+
+// Grid-table
+@mixin grid-table($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+
+    @for $i from 1 through $col-num {
+        > div:nth-child(#{$i}n) {
+            display: inline-block;
+
+            @if ($col-width==auto) {
+                //width: $col-width;
+                width: calc((100% - #{$col-gap} * (#{$col-num} - 1)) / #{$col-num} - 1px);
+                height: $col-height;
+                margin-right: $col-gap;
+                margin-top: $row-gap;
+            } @else {
+                width: $col-width;
+                height: $col-height;
+                margin-right: calc((100% - #{$col-width} * #{$col-num}) / (#{$col-num} - 1) - 1px);
+                margin-top: $row-gap;
+            }
+        }
+
+        > div:nth-child(#{$i}) {
+            margin-top: 0;
+        }
+    }
+
+    > div:nth-child(#{$col-num}n) {
+        margin-right: 0;
+    }
+
+    > div:last-child {
+        margin-right: 0;
+    }
+
+    @if ($max-item < 99) {
+        > div:nth-child(1n) {
+            display: none;
+        }
+
+        @for $i from 1 through $max-item {
+            > div:nth-child(#{$i}) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@mixin grid-table-L($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item) {
+    @include resp(L) {
+        @include grid-table($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item);
+    }
+}
+
+@mixin grid-table-M($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item) {
+    @include resp(M) {
+        @include grid-table($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item);
+    }
+}
+
+@mixin grid-table-S($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item) {
+    @include resp(S) {
+        @include grid-table($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item);
+    }
+}
+
+@mixin grid-table-X($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item, $resolution) {
+    @include respSpecif($resolution) {
+        @include grid-table($col-width, $col-height, $col-num, $row-gap, $col-gap, $max-item);
+    }
+}
+
+// Text wrap
+@mixin text-wrap($font-size, $line-height, $line-clamp, $background-color) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line-clamp;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        overflow: hidden;
+        position: relative;
+        line-height: #{$line-height};
+        max-height: calc(#{$font-size} * #{$line-height} * #{$line-clamp});
+        text-align: justify;
+        margin-right: -1em;
+        padding-right: 1em;
+
+        &:before {
+            content: "...";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1em;
+            height: 1em;
+            margin-top: 0.2em;
+            background: $background-color;
+        }
+    }
+}
+
+@mixin text-wrap-L($font-size, $line-height, $line-clamp, $background-color) {
+    @include resp(L) {
+        @include text-wrap($font-size, $line-height, $line-clamp, $background-color);
+    }
+}
+
+@mixin text-wrap-M($font-size, $line-height, $line-clamp, $background-color) {
+    @include resp(M) {
+        @include text-wrap($font-size, $line-height, $line-clamp, $background-color);
+    }
+}
+
+@mixin text-wrap-S($font-size, $line-height, $line-clamp, $background-color) {
+    @include resp(S) {
+        @include text-wrap($font-size, $line-height, $line-clamp, $background-color);
+    }
+}
+
+@mixin text-wrap-X($font-size, $line-height, $line-clamp, $background-color, $resolution) {
+    @include respSpecif($resolution) {
+        @include text-wrap($font-size, $line-height, $line-clamp, $background-color);
+    }
+}
+
+// Hide childs
+@mixin hide-childs($show-num, $show-start, $display) {
+    > div:nth-child(1n) {
+        display: none !important;
+    }
+
+    @for $i from 1 through $show-num {
+        $hide-child: $show-start + $i - 1;
+
+        > div:nth-child(#{$hide-child}) {
+            display: $display !important;
+        }
+    }
+}
+
+@mixin hide-childs-L($show-num, $show-start, $display) {
+    @include resp(L) {
+        @include hide-childs($show-num, $show-start, $display);
+    }
+}
+
+@mixin hide-childs-M($show-num, $show-start, $display) {
+    @include resp(M) {
+        @include hide-childs($show-num, $show-start, $display);
+    }
+}
+
+@mixin hide-childs-S($show-num, $show-start, $display) {
+    @include resp(S) {
+        @include hide-childs($show-num, $show-start, $display);
+    }
+}
+
+@mixin hide-childs-X($show-num, $show-start, $display, $resolution) {
+    @include respSpecif($resolution) {
+        @include hide-childs($show-num, $show-start, $display);
+    }
+}
+
+// Hide elements
+@mixin hide() {
+    display: none;
+}
+
+@mixin hide-L() {
+    @include resp(L) {
+        @include hide();
+    }
+}
+
+@mixin hide-M() {
+    @include resp(M) {
+        @include hide();
+    }
+}
+
+@mixin hide-S() {
+    @include resp(S) {
+        @include hide();
+    }
+}
+
+@mixin hide-X($resolution) {
+    @include respSpecif($resolution) {
+        @include hide();
+    }
+}
+
+@mixin show($display) {
+    display: $display;
+}
+
+@mixin show-L($display) {
+    @include resp(L) {
+        @include show($display);
+    }
+}
+
+@mixin show-M($display) {
+    @include resp(M) {
+        @include show($display);
+    }
+}
+
+@mixin show-S($display) {
+    @include resp(S) {
+        @include show($display);
+    }
+}
+
+@mixin show-X($display, $resolution) {
+    @include respSpecif($resolution) {
+        @include show($display);
+    }
+}
+
+// Image
+@mixin img($folder, $url, $width-box, $height-box, $width, $height) {
+    width: $width-box;
+    height: $height-box;
+    background: url("/assets/images/#{$folder}/#{$url}") no-repeat center;
+    background-size: $width $height;
+}
+
+@mixin img-L($folder, $url, $width-box, $height-box, $width, $height) {
+    @include resp(L) {
+        @include img($folder, $url, $width-box, $height-box, $width, $height);
+    }
+}
+
+@mixin img-M($folder, $url, $width-box, $height-box, $width, $height) {
+    @include resp(M) {
+        @include img($folder, $url, $width-box, $height-box, $width, $height);
+    }
+}
+
+@mixin img-S($folder, $url, $width-box, $height-box, $width, $height) {
+    @include resp(S) {
+        @include img($folder, $url, $width-box, $height-box, $width, $height);
+    }
+}
+
+@mixin img-X($folder, $url, $width-box, $height-box, $width, $height, $resolution) {
+    @include respSpecif($resolution) {
+        @include img($folder, $url, $width-box, $height-box, $width, $height);
+    }
+}
+
+@mixin image($img, $width-box, $height-box, $width, $height, $postion) {
+    width: $width-box;
+    min-width: $width-box;
+    height: $height-box;
+    background: url("#{$img-root}/#{$img}") no-repeat $postion;
+    background-size: $width $height;
+}
+
+@mixin imageChange($img) {
+    background-image: url("#{$img-root}/#{$img}");
+}
+
+@mixin image-L($img, $width-box, $height-box, $width, $height, $postion) {
+    @include resp(L) {
+        @include image($img, $width-box, $height-box, $width, $height, $postion);
+    }
+}
+
+@mixin image-M($img, $width-box, $height-box, $width, $height, $postion) {
+    @include resp(M) {
+        @include image($img, $width-box, $height-box, $width, $height, $postion);
+    }
+}
+
+@mixin image-S($img, $width-box, $height-box, $width, $height, $postion) {
+    @include resp(S) {
+        @include image($img, $width-box, $height-box, $width, $height, $postion);
+    }
+}
+
+@mixin image-X($img, $width-box, $height-box, $width, $height, $postion, $resolution) {
+    @include respSpecif($resolution) {
+        @include image($img, $width-box, $height-box, $width, $height, $postion);
+    }
+}
+
+// Boostrap Grid
+@mixin boostrap-grid($width) {
+    display: block;
+    width: 100%;
+
+    @for $i from 1 through 21 {
+        .col-#{$i} {
+            display: inline-block;
+            width: #{100% / 21 * $i};
+        }
+    }
+}
+
+// Animation
+
+@mixin animation-opacity-parent() {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+@mixin animation-opacity-child() {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+@mixin animation-opacity-visible() {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+@mixin animation-opacity-hidden() {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+// Align
+@mixin align($display, $verical-align, $horizontal-align) {
+    @if ($display==flex) {
+        display: flex !important;
+
+        @if ($verical-align==top) {
+            align-items: flex-start;
+        } @else if($verical-align==center) {
+            align-items: center;
+        } @else if($verical-align==bottom) {
+            align-items: flex-end;
+        }
+
+        @if ($horizontal-align==left) {
+            justify-content: flex-start;
+        } @else if($horizontal-align==center) {
+            justify-content: center;
+        } @else if($horizontal-align==right) {
+            justify-content: flex-end;
+        }
+    }
+}
+
+// Placeholder
+@mixin placeHolderInput() {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+}
+
+// Text Overflow
+@mixin overflow-patch() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+}

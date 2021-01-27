@@ -1,1 +1,40 @@
-<p>user works!</p>
+<div class="usersTable__body" tabindex='0' aria-label="user-list">
+    <div tabindex='0' aria-label="single-user" class="usersTable__body__row" *ngFor="let user of userData; let i=index;">
+        <div tabindex='0' class="col col--checkbox">
+            <div aria-label="check user" class="f-checkbox">
+                <input [id]="'all-' + i" type="checkbox">
+                <label [for]="'all-' + i"></label>
+            </div>
+        </div>
+        <div class="col col--user">
+            <div class="user">
+                <div class="user__img"><img [alt]="user.first_name" src="assets/imgs/employees/worker.png"></div>
+                <div class="user__data">
+                    <div class="user__data__name">{{ user.first_name }} {{ user.last_name }}</div>
+                    <div class="user__data__contact">{{ user.email }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col col--data">
+            <div class="counter">
+                <div tabindex='0' aria-label="counter icon1" class="counter__icon"></div>
+                <div class="counter__number">20</div>
+            </div>
+        </div>
+        <div class="col col--subscribe">
+            <div class="counter">
+                <div tabindex='0' aria-label="counter icon2" class="counter__icon"></div>
+                <div class="counter__number">20</div>
+            </div>
+        </div>
+        <div class="col col--contacts">
+            <div class="counter">
+                <div tabindex='0' aria-label="counter icon3" class="counter__icon"></div>
+                <div class="counter__number">20</div>
+            </div>
+        </div>
+        <div class="col col--tools">
+            <div tabindex='0' aria-label="actions icon" class="actions"></div>
+        </div>
+    </div>
+</div>

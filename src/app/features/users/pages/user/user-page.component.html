@@ -1,0 +1,70 @@
+<div class="usersC">
+    <div class="usersC__tabs">
+        <div tabindex="0" class="tab tab--active">
+            Users
+        </div>
+        <div tabindex="0" class="tab">
+            Pending Users
+        </div>
+        <div tabindex="0" class="tab">
+            Leaderboard
+        </div>
+    </div>
+    <app-user-list [userData]="userList" (showModals)="activateModal($event)"></app-user-list>
+</div>
+
+<div role="dialog" aria-labelledby="Test title" aria-describedby="Test description" class="modalC" *ngIf="showModal" trapFocus>
+    <div class="modal">
+        <div class="modal__header">Add User</div>
+        <div class="modal__content">
+            <form [formGroup]="form">
+                <div class="f-basic">
+                    <label for="firstName" class="req">First Name:</label>
+                    <input name="firstName" type="text" formControlName="firstName" maxlength="25" (focus)="focused='firstName'" (blur)="focused=''">
+                    <div class="limit" *ngIf="f.firstName.value.length > 0 && focused == 'firstName' ">{{f.firstName.value.length}}/25</div>
+                    <div class="error" *ngIf="f.firstName.errors?.required && f.firstName.touched">First name is required.</div>
+                    <div class="error" *ngIf="f.firstName.errors?.minlength && f.firstName.touched">Minimum number of characters is 3.</div>
+                </div>
+                <div class="f-basic">
+                    <label for="lastName" class="req">Last Name:</label>
+                    <input name="lastName" type="text" formControlName="lastName" maxlength="25" (focus)="focused='lastName'" (blur)="focused=''">
+                    <div class="limit" *ngIf="f.lastName.value.length > 0 && focused == 'lastName' ">{{f.lastName.value.length}}/25</div>
+                    <div class="error" *ngIf="f.lastName.errors?.required && f.lastName.touched">Last name is required.</div>
+                    <div class="error" *ngIf="f.lastName.errors?.minlength && f.lastName.touched">Minimum number of characters is 3.</div>
+                </div>
+                <div class="f-basic">
+                    <label for="email" class="req">Email:</label>
+                    <input name="email" type="text" formControlName="email" maxlength="40" (focus)="focused='email'" (blur)="focused=''">
+                    <div class="limit" *ngIf="f.email.value.length > 0 && focused == 'email' ">{{f.email.value.length}}/40</div>
+                    <div class="error" *ngIf="f.email.errors?.required && f.email.touched">Email is required.</div>
+                    <div class="error" *ngIf="f.email.errors?.minlength && f.email.touched">Minimum number of characters is 3.</div>
+                </div>
+                <div class="f-basic">
+                    <label for="username" class="req">Username:</label>
+                    <input name="username" type="text" formControlName="username" maxlength="25" (focus)="focused='username'" (blur)="focused=''">
+                    <div class="limit" *ngIf="f.username.value.length > 0 && focused == 'username' ">{{f.username.value.length}}/25</div>
+                    <div class="error" *ngIf="f.username.errors?.required && f.username.touched">Username is required.</div>
+                    <div class="error" *ngIf="f.username.errors?.minlength && f.username.touched">Minimum number of characters is 3.</div>
+                </div>
+                <div class="f-basic">
+                    <label for="password" class="req">Password:</label>
+                    <input name="password" type="password" formControlName="password" maxlength="25" (focus)="focused='password'" (blur)="focused=''">
+                    <div class="limit" *ngIf="f.password.value.length > 0 && focused == 'password' ">{{f.password.value.length}}/25</div>
+                    <div class="error" *ngIf="f.password.errors?.required && f.password.touched">Password is required.</div>
+                    <div class="error" *ngIf="f.password.errors?.minlength && f.password.touched">Minimum number of characters is 6.</div>
+                </div>
+                <div class="f-basic">
+                    <label for="passwordC" class="req">Confirm password:</label>
+                    <input name="passwordC" type="password" formControlName="passwordC" maxlength="25" (focus)="focused='passwordC'" (blur)="focused=''">
+                    <div class="limit" *ngIf="f.passwordC.value.length > 0 && focused == 'passwordC' ">{{f.passwordC.value.length}}/25</div>
+                    <div class="error" *ngIf="f.passwordC.errors?.required && f.passwordC.touched">Confirm password is required.</div>
+                    <div class="error" *ngIf="f.passwordC.errors?.minlength && f.passwordC.touched">Minimum number of characters is 6.</div>
+                </div>
+            </form>
+        </div>
+        <div class="modal__footer" role="list" tabindex="-1">
+            <button role="listitem" class="btn" (click)="showModal=false;">Cancel</button>
+            <button role="listitem" class="btn btn--prim" (click)="save()">Save</button>
+        </div>
+    </div>
+</div>

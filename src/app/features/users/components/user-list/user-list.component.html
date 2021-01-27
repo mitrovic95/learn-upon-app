@@ -1,1 +1,45 @@
-<p>user-list works!</p>
+<div class="usersC__content--basic">
+    <div class="usersTable">
+        <div class="usersTable__header">
+            <div tabindex="0" aria-label="check all users" class="col col--checkbox">
+                <div class="f-checkbox">
+                    <input id="all" type="checkbox">
+                    <label for="all"></label>
+                </div>
+            </div>
+            <div class="col col--user">
+                <div class="col--user__counter">940 Users</div>
+                <div class="col--user__search">
+                    <div class="f-search">
+                        <div class="f-search__icon"></div>
+                        <input id="search" name="search" class="f-search__input" placeholder="Search">
+                        <label for="search" class="f-search__label">Search</label>
+                    </div>
+                </div>
+                <div class="col--user__filters">
+                    <button class="btn">Type: All</button>
+                    <button class="btn">Sort: A-Z</button>
+                    <button class="btn">Groups: All</button>
+                    <button class="btn btn--add">Add Filter</button>
+                </div>
+            </div>
+            <div class="col col--data"></div>
+            <div class="col col--subscribe"></div>
+            <div class="col col--contacts"></div>
+            <div class="col col--tools">
+                <button class="btn--icon btn--icon--create" (click)="activateModal()">Create</button>
+                <button class="btn--icon btn--icon--action">Action</button>
+            </div>
+        </div>
+        <app-user [userData]="userData"></app-user>
+        <div class="usersTable__footer">
+            <div class="pagination">
+                <div tabindex='0' aria-label="increase pagination" class="pagination__left"></div>
+                <div class="pagination__currentPage">
+                    1
+                </div>
+                <div tabindex='0' aria-label="decrease pagination" class="pagination__right"></div>
+            </div>
+        </div>
+    </div>
+</div>

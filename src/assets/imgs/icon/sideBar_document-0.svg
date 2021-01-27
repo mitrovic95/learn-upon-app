@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="sideBar_document-0" transform="translate(-49 -1057)">
+    <rect id="Rectangle_943" data-name="Rectangle 943" width="12" height="17" transform="translate(52.5 1063.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_5000" data-name="Path 5000" d="M52.5,1073.5h-3v-13a3,3,0,1,1,3,3v-2h2.792" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_5001" data-name="Path 5001" d="M64.5,1063.5a3,3,0,0,0,0-6h-12" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_3584" data-name="Line 3584" x2="4" transform="translate(58.5 1067.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_3585" data-name="Line 3585" x2="4" transform="translate(58.5 1071.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_3586" data-name="Line 3586" x2="4" transform="translate(58.5 1075.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_5002" data-name="Path 5002" d="M54.5,1067l.5.5,2-2" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_5003" data-name="Path 5003" d="M54.5,1071l.5.5,2-2" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_5004" data-name="Path 5004" d="M72.5,1079a1.5,1.5,0,0,1-3,0v-14.5a1.5,1.5,0,0,1,3,0Z" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_3587" data-name="Line 3587" x2="3" transform="translate(69.5 1078.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_3588" data-name="Line 3588" x2="3" transform="translate(69.5 1071.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_5005" data-name="Path 5005" d="M67.5,1073v-7.5A1.5,1.5,0,0,1,69,1064h.586" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<div class="navigation">
+    <div class="navigation__basic">
+        <div tabindex="0" aria-label="navigation" class="basic__nav"></div>
+        <div aria-label="learn upon logo" class="basic__logo" (keydown.enter)="goToHomePage()" routerLink="/home"></div>
+    </div>
+    <div class="navigation__tools">
+        <div tabindex="0" aria-label="icon search" class="tool tool--search"></div>
+        <div tabindex="0" aria-label="icon workflow" class="tool tool--workflow"></div>
+        <div tabindex="0" aria-label="icon notifications" class="tool tool--notifications"></div>
+        <div tabindex="0" aria-label="icon user" class="tool tool--user">
+            <img src="assets/imgs/employees/worker.png">
+        </div>
+    </div>
+    <div class="navigation__navItems">
+        <div tabindex="0" aria-label="icon document" class="navItem navItem--document"></div>
+        <div tabindex="0" aria-label="icon buy" class="navItem navItem--buy"></div>
+        <div tabindex="0" aria-label="icon chat" class="navItem navItem--chat"></div>
+        <div tabindex="0" aria-label="icon user" class="navItem navItem--user navItem--active" (keydown.enter)="goToUsersPage()" routerLink="/users"></div>
+        <div tabindex="0" aria-label="icon users" class="navItem navItem--users"></div>
+        <div tabindex="0" aria-label="icon transaction" class="navItem navItem--transaction"></div>
+        <div tabindex="0" aria-label="icon workflow" class="navItem navItem--workflow"></div>
+        <div tabindex="0" aria-label="icon data" class="navItem navItem--data"></div>
+        <div tabindex="0" aria-label="icon settings" class="navItem navItem--settings"></div>
+    </div>
+</div>

@@ -1,36 +1,41 @@
-import { NgModule } from '@angular/core';
+import { TrapFocusDirective } from './directives/focus-trap';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { UserComponent } from './features/users/pages/user/user.component';
-import { UserListComponent } from './features/users/components/user-list/user-list.component';
+import { reduceState, StoreModule } from '@ngrx/store';
 import { LayoutComponent } from './layout/layout.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { SideBarComponent } from './layout/side-bar/side-bar.component';
-import { userReducer } from './actions/users/reducer';
-import { UserStoreService } from './actions/users/store.service';
+import { UserStoreService } from './store/users/store.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { EffectsModule } from '@ngrx/effects';
-import { UserEffects } from './actions/users/effect';
-
+import { UserEffects } from './store/users/effect';
+import { NavigationComponent } from './layout/navigation/navigation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { UsersModule } from './features/users/users.module';
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    HeaderComponent,
-    SideBarComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    //StoreModule.forFeature('user', userReducer),
-    StoreModule.forRoot({}),
-    // StoreModule.forRoot(userReducer),
-    EffectsModule.forRoot([UserEffects]),
+    UsersModule,
+    StoreModule.forRoot(reduceState),
+    EffectsModule.forRoot([EffectsModule])
+  ],
+  exports: [UsersModule],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [UserStoreService, UserService],
   bootstrap: [AppComponent]
